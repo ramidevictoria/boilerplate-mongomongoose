@@ -20,13 +20,28 @@ const createAndSavePerson = (done) => {
   });
 };
 
-createAndSavePerson(function(err, data) {
-  console.log(data);
-});
+// createAndSavePerson(function(err, data) {
+//   console.log(data);
+// });
+
+const arrayOfPeople = [
+  {name: 'Un nombre', age: 38, favoriteFoods:['asdf', 'asdf', 'sdfg']},
+  {name: 'Un nombre', age: 38, favoriteFoods:['asdf', 'asdf', 'sdfg']},
+  {name: 'Un nombre', age: 38, favoriteFoods:['asdf', 'asdf', 'sdfg']}
+];
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+
+  Person.create(arrayOfPeople, function(err, people) {
+    if (err) return console.error(err);
+    done(null, people);
+  })
+  
 };
+
+// createManyPeople(arrayOfPeople, function(err, data) {
+//   console.log(data);
+// });
 
 const findPeopleByName = (personName, done) => {
   done(null /*, data*/);
